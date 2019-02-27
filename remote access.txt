@@ -1,0 +1,16 @@
+# remote access
+ 
+# remote access using clusterSSH (cssh)
+# sudo apt-get install cssh
+# config file ./clusterssh/clusters:
+miner root@jlath15.myddns.me:5000 root@jlath15.myddns.me:5001 root@jlath15.myddns.me:5002 root@jlath15.myddns.me:5003
+
+miner_screen root@jlath15.myddns.me:5000 root@jlath15.myddns.me:5001 root@jlath15.myddns.me:5002 root@jlath15.myddns.me:5003
+
+# open one session for bash terminal and the other for screens showing miner output
+
+cssh miner
+
+cssh miner_screen
+
+# input password in grey cssh gui text box. On one session reattach miner screens using screen -r

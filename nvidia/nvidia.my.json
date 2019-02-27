@@ -1,0 +1,53 @@
+{
+  "comment": "Please see https://getpimp.org for information about configuring this file",
+  "gpuSettings": [
+    {
+    "gpu_id": "0",
+    "NVCOffset": "80",
+    "NVMOffset": "390",
+    "NVPLimit": "110",
+    "fanspeed": "60",
+    "temptarget": "70"
+    },
+    {
+    "gpu_id": "1",
+    "NVCOffset": "80",
+    "NVMOffset": "390",
+    "NVPLimit": "110",
+    "fanspeed": "60",
+    "temptarget": "70"
+    },
+    {
+    "gpu_id": "2",
+    "NVCOffset": "80",
+    "NVMOffset": "390",
+    "NVPLimit": "110",
+    "fanspeed": "60",
+    "temptarget": "70"
+    },
+    {
+    "gpu_id": "3",
+    "NVCOffset": "80",
+    "NVMOffset": "390",
+    "NVPLimit": "110",
+    "fanspeed": "60",
+    "temptarget": "70"
+    },
+    {
+    "gpu_id": "4",
+    "NVCOffset": "80",
+    "NVMOffset": "390",
+    "NVPLimit": "110",
+    "fanspeed": "60",
+    "temptarget": "70"
+    },
+    {
+    "gpu_id": "5",
+    "NVCOffset": "80",
+    "NVMOffset": "390",
+    "NVPLimit": "110",
+    "fanspeed": "60",
+    "temptarget": "70"
+    }
+  ]
+}

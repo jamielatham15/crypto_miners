@@ -1,0 +1,157 @@
+
+# ==================================================================
+#       .__
+#______ |__| _____ ______  Portable Instant Mining Platform
+#\____ \|  |/     \____  \              PiMP OS
+#|  |_> >  |  Y Y  \  |_> >
+#|   __/|__|__|_|  /   __/   Support: #PiMP on FreenodeIRC
+#|__|            \/|__|           https://getPiMP.org
+#
+#
+# Copyright (c) 2017 getPiMP.org.  All Rights Reserved.
+# License: This code is licensed for use with getPiMP.org only.
+# Description: PIMP CLI miner module config file.
+# A .pcfg is a specially formatted PIMP Config mining profile.
+# This file makes it easy for you to pick your wallet and pool
+# and mine to it with this miner. 
+# ==================================================================
+# Profile Description:
+#
+# Mine ETH and dual-mine ETH with DECRED, PASCAL, SIA, OR LBRY at the same time using Claymore's FEE Miner
+# NOTE: CLAYMORE TAKES A % of your hash from using this miner!!
+# DISCLAIMER: DUAL MINING IS VERY DANGEROUS!!! 
+#  PLEASE TAKE PRECAUTIONS AND TEST THOROUGHLY SO YOU DO NOT BURN OR DAMAGE
+#  YOUR HARDWARE. PIMP ASSUMES NO LIABILITY FOR ANY DAMAGES CAUSED BY MINING.
+# ==================================================================
+
+# NAME = This is the way the miner will appear in miner farm
+NAME=Claymore Dual
+
+# PRIMARY/ETH/ETC/UBQ POOLS:
+# ---------------------------------------------------------------------
+# PRIMARY POOL INFORMATION: Put your ETHASH pool and wallet here.
+# POOL1 is in form stratum+tcp://url:port
+# USER1 is the username usually in form wallet.workername
+# PASS1 is usually x but can be used for parameters.
+
+# ETH Ethermine (USER1 is ETH wallet dot workername)
+#  POOL1=stratum+tcp://us1.ethermine.org:4444
+#  USER1=0x6d156c89f75405b2877be9092e006dca55a12cfa.PimpWorker
+#  PASS1=x
+#  ALGO1=Ethereum
+
+# ETH Nicehash (USER1 is BTC wallet dot worker) (Need FLAGS= -esm 3)
+#  POOL1=stratum+tcp://daggerhashimoto.eu.nicehash.com:3353
+#  USER1=32kLaftjesZyianXFqNSztbvuyasmgDXMi.rx580
+#  PASS1=x
+#  ALGO1=Ethereum
+
+# ETH Ethpool (USER1 is ETH wallet dot workername)
+#  POOL1=stratum+tcp://us1.ethpool.org:3333
+#  USER1=0x6d156c89f75405b2877be9092e006dca55a12cfa.PimpWorker
+#  PASS1=x
+#  ALGO1=Ethereum
+
+# ETH Nanopool (USER1 is ETH wallet dot workername)
+
+# Ethereum
+ POOL1=eth-eu1.nanopool.org:9999
+ USER1=0x6b572c64aa3e3e6efc8683d9640add776c71ebf1.[minerID]/jamielatham15@gmail.com
+
+# Ethereum Classic
+#  POOL1=etc-eu1.nanopool.org:19999
+#  USER1=0xB13E2bA70Fec082F1442FB91f159a3B64b72D66B.[minerID]/jamielatham15@gmail.com
+
+  PASS1=x
+  ALGO1=Ethereum
+
+# Ethash mining pool hub
+#  POOL1=miningpoolhub.com:17XXX
+#  USER1=jlath15.rx580
+#  PASS1=x
+#  ALGO1=Ethereum
+
+
+## Note: These are UBQ pools not ETH and they requre a UBQ address as USER1.
+
+# UBQ Minertopia (USER1 is UBQ wallet only) (requires -allpools 1 in the FLAGS below)
+#  POOL1=stratum+tcp://ubq.minertopia.org:8008
+#  USER1=0x6637ad6077ba88c14e8d9ed716305ba02f4cfe78
+#  PASS1=x
+#  ALGO1=Ubiq(Ethash)
+
+# UBQ Ubiqpool (USER1 is UBQ wallet only) (requires -allpools 1 in the FLAGS below)
+#  POOL1=stratum+tcp://us.ubiqpool.io:8008
+#  USER1=0x6637ad6077ba88c14e8d9ed716305ba02f4cfe78
+#  PASS1=x
+#  ALGO1=Ubiq(Ethash)
+
+
+
+# DUAL MINING CONFIG: Not enabled by default. 
+# ---------------------------------------------------------------------
+# To Dual Mine:
+#
+# Step 1: Change 2 things in the FLAGS= below:
+#  Add  -mode 0  to enable dual mining.
+#  Add -dcoin dcr, -dcoin sc, -dcoin lbc, or -dcoin pasc
+#
+# Step 2: 
+#  Put your Second-Coin (DCR/LBRY/SIA/PASCAL) Pool/wallet info here
+# POOL2 is in form stratum+tcp://url:port
+# USER2 is the username usually in form wallet.workername or username.workername
+# PASS2 is usually x but can be used for parameters.
+# ALGO2 should be the name of the Algo to mine: decred, lbry, sia, or pasc
+#   The ALGO2 is required for proper stats in miner.farm.
+
+# EXAMPLE FOR SIA: (use FLAGS=-mode 0 -dcoin sc)
+#  POOL2=sia-eu2.nanopool.org:7777
+#  USER2=f4080275bf7671a0d546b518557a632c26b482ce24425d9c526ca41792a72c90d178b76d70eb/rx580/jamielatham15@gmail.com
+#  PASS2=x
+#  ALGO2=Sia
+
+# EXAMPLE FOR DECRED: (use FLAGS=-mode 0 -dcoin dcr)
+#  POOL2=stratum+tcp://decred.mine.zpool.ca:5744
+#  USER2=1JiPutZrDBLW4YwXY5GbwgLJrpAQTMUUir.pimp
+#  PASS2=x
+#  ALGO2=Decred
+
+# EXAMPLE FOR LBRY: (use FLAGS=-mode 0 -dcoin lbc)
+#  POOL2=stratum+tcp://lbry.suprnova.cc:6256
+#  USER2=commodityintelligenc.rx580
+#  PASS2=x
+#  ALGO2=Lbry
+
+# EXAMPLE FOR PASC: (use FLAGS=-mode 0 -dcoin pasc)
+#  POOL2=stratum+tcp://pasc.suprnova.cc:5279
+#  USER2=pimp.pimp
+#  PASS2=x
+#  ALGO2=Pasc
+
+# ---------------------------------------------------------------------
+# COMMAND LINE PARAMETERS:
+# Here is where you can add command line parameters such as intensity and mining modes.
+# NOTE: the pool/wallet/algo settings are set by PIMP. Set those above.
+# Default is for temp target 75C and temp stop 90C.
+# IF YOU WANT TO MANAGE FANS WITH gputool YOU MUST REMOVE -tt 75 -tstop 90
+#  Reason: Claymore will override gputool. But we didn't want to lose the failsafe defaults.
+
+#FLAGS=-allpools 1 -ethi 7 -mode 1  -tt -70 -ttli 75 -tstop 90 -esm 3
+FLAGS=-allpools 1 -mode 1 -dcoin lbc -dcri 7  -tt -75 -ttli 75 -tstop 90 -dbg 0 -mport 0 -asm 1 
+
+# For all options read Claymore dual documentation: 
+#  https://bitcointalk.org/index.php?topic=1433925.0
+
+# MOST COMMON FLAGS USED BY PIMPS:
+# -dcri   Decred/Siacoin/Lbry/Pascal intensity, or Ethereum fine-tuning value in ETH ASM mode. Default value is 30, you can adjust this value to get the best Decred/Siacoin/Lbry mining speed without # reducing Ethereum mining speed. 
+# You can also specify values for every card, for example "-dcri 30,100,50".
+# -mode 0 = dual mining
+# -mode 1 = eth only
+
+# ==================================================================
+# INTERNAL USE ONLY: modification below here is unadvised 
+TYPE=GPU
+DIR=claymore-dual
+BINARY=ethdcrminer64
+CONF=p1:epool,u1:ewal,l1:epsw,p2:dpool,u2:dwal,l2:dpsw
+API=mport

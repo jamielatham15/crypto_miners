@@ -1,0 +1,29 @@
+# amd (fglrx) fans and overclocking
+
+
+aticonfig --initial -f --adapter=all // initialize all gpus in xorg configuration, reboot
+
+aticonfig --adapter=all --odgc // get current clocks, ensure all gpus appear
+
+aticonfig --od-enable // enable overclocking
+
+aticonfig --adapter=x --odsc={NewCoreClock | 0, NewMemoryClock | 0} // set clocks for specific adapter, eg:
+// aticonfig --adapter=1 --odsc=1000,1500
+
+DISPLAY=:0.x && aticonfig --pplib-cmd "set fanspeed 0 50" // set fan speeds. set display to 0. followed by gpu number
+
+aticonfig --adapter=all --odcc // commit clocks to xorg config, should make perminant.
+
+// example config for r9280x miner (mixed brands)
+
+
+aticonfig --adapter=0 --odsc=1050,1500
+aticonfig --adapter=1 --odsc=950,1450
+aticonfig --adapter=2 --odsc=950,1450
+aticonfig --adapter=3 --odsc=1050,1500
+
+DISPLAY=:0.0 && aticonfig --pplib-cmd "set fanspeed 30 65"
+DISPLAY=:0.1 && aticonfig --pplib-cmd "set fanspeed 30 65"
+DISPLAY=:0.2 && aticonfig --pplib-cmd "set fanspeed 30 65"
+DISPLAY=:0.3 && aticonfig --pplib-cmd "set fanspeed 30 65"
+

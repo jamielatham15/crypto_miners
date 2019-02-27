@@ -1,0 +1,138 @@
+# ==================================================================
+#       .__
+#______ |__| _____ ______  Portable Instant Mining Platform
+#\____ \|  |/     \____  \              PiMP OS
+#|  |_> >  |  Y Y  \  |_> >
+#|   __/|__|__|_|  /   __/   Support: #PiMP on FreenodeIRC
+#|__|            \/|__|           https://getPiMP.org
+#
+#
+# Copyright (c) 2017 getPiMP.org.  All Rights Reserved.
+# License: This code is licensed for use with getPiMP.org only.
+# Description: PIMP CLI miner module config file.
+# A .pcfg is a specially formatted PIMP Config mining profile.
+# This file makes it easy for you to pick your wallet and pool
+# and mine to it with this miner. 
+# ==================================================================
+# Profile Description:
+# 
+# Mine Zcash using NVIDIA
+#
+# DISCLAIMER: MINING IS DANGEROUS!!!
+# PLEASE TAKE PRECAUTIONS AND TEST THOROUGHLY 
+# SO YOU DO NOT BURN OR DAMAGE YOUR HARDWARE!!!
+# PIMP ASSUMES NO LIABILITY FOR ANY DAMAGES CAUSED BY MINING.
+# ==================================================================
+# NAME = This is the way the miner will appear in miner farm
+NAME=NVIDIA EWBF Zcash miner
+# ALGO1 Needs to be Equihash.
+ALGO1=Equihash
+#
+# POOL INFORMATION: Put your pool and wallet here.
+# FOR EWBF MINER: 
+# POOL1 is in form url   (no stratum:// and the port is defined in the FLAGS)
+# Note: EWBF miner does not currently support SSL stratum ssl:// 
+# USER1 is the username usually in form wallet.workername 
+# NOTE: SOME EXCHANGES CANNOT BE MINED TO, like Bittrex.
+# PASS1 is usually x but can be used for parameters on some pools.
+
+# POOLS:
+# ---------------------------------------------------------------------
+# ZEC Mine-to-wallet pools:
+# These pools allow you to mine to direct wallet address.
+# Either put a ZEC wallet (starts with t), nicehash takes a BTC wallet,
+#  then put a dot and then your worker name if you like. 
+# Simply remove the # from the pool/user/pass that you want to use and put the #
+#  in front of every other pool.
+#
+# flypool (unencrypted connection): FLAGS=--port 3333
+#   POOL1=eu1-zcash.flypool.org
+#   USER1=t1NojYW56MNBvCscd5NCRhT3Zm17MvSgqyL.gtx1060
+#   PASS1=x
+#
+# nanopool (unencrypted connection): FLAGS=--port 6633
+   POOL1=zec-eu2.nanopool.org 
+   USER1=t1K739Nrb2h7nmPkBdyZVHbp1V9a2YRd1u3.gtx1070/jamielatham15@gmail.com
+   PASS1=x
+#
+# nicehash (unencrypted connection): FLAGS=--port 3357
+#   POOL1=equihash.eu.nicehash.com
+#   USER1=32kLaftjesZyianXFqNSztbvuyasmgDXMi.gtx1060
+#   PASS1=x
+#
+# ---------------------------------------------------------------------
+# ZEC Mine-to-worker pools:
+# These pools require you to create an account and a worker to mine to:
+#
+# miningpoolhub (unencrypted connection):  FLAGS=--port 20570
+#   POOL1=europe.equihash-hub.miningpoolhub.com 
+#   USER1=jlath15.gtx1060
+#   PASS1=x
+#
+# suprnova (unencrypted connection): FLAGS=--port 2142
+#   POOL1=zec.suprnova.cc
+#   USER1=YourLogin.YourWorkerName 
+#   PASS1=YourWorkerPassword
+#
+# coinmine (unencrypted connection): FLAGS=--port 7007
+#   POOL1=zec-us.coinmine.pl
+#   USER1=YourLogin.YourWorkerName 
+#   PASS1=YourWorkerPassword
+# 
+# miningrigrentals (unencrypted connection):  FLAGS=--port 3333
+#   POOL1=us-east01.miningrigrentals.com
+#   USER1=pimp.34579
+#   PASS1=x
+# ---------------------------------------------------------------------
+
+# COMMAND LINE PARAMETERS:
+# Here is where you can add command line parameters such as intensity and mining modes.
+# NOTE: the pool/wallet/algo settings are set by PIMP. Set those above.
+# We suggest leaving --log 2 in so you can control your miner and monitor it.
+# You have to define the pool's Stratum port here as well. 
+# IF YOU WANT TO MANAGE FANS WITH gputool YOU MUST REMOVE --templimit
+#  Reason: EWBF will override gputool. But we didn't want to lose the failsafe defaults.
+
+#nicehash (3357) or flypool (3333) or nanopool (6666)
+FLAGS=--port 6666 --eexit 1 --fee 0 --tempunits C --pec
+
+#miningpoolhub (equihash)
+#FLAGS=--port 17023 --eexit 1 --fee 0 --tempunits C --pec
+
+
+# Here is the CLI --help information provided by the miner's author:
+# +-------------------------------------------------+
+# |         EWBF's Zcash CUDA miner. 0.3.3b         |
+# +-------------------------------------------------+
+# --help, -h          Show this help.
+# --server            Stratum server only hostname or ip address.
+# --port              Stratum server port.
+# --user              Stratum user.
+# --pass              Stratum password.
+# --fee               The developer fee in percent allowed decimals for example 0, 1, 2.5, 1.5 etc.
+# --pec               Power efficiency calculator. Shows power statistics.
+# --cuda_devices      Space-separated list of cuda devices.
+#                     Without this option all devices are used.
+# --solver            Disable benchmark and use specified solver
+#                     Allowed values from 0 to 3.
+# --eexit             Exit in case of error. Value 1 exit if miner cannot restart workers.
+#                     Value 2 if lost connection with the pool. 3 both cases.
+# --log               Create file miner.log in directory of miner.
+#                     Allowed values 1 and 2. 1 only errors, 2 will repeat console output.
+# --logfile           Set custom filename.
+# --tempunits         Temperature units, allowed values: C for celsius, F for fahrenheit and K for kelvin :)).
+# --templimit         Temperature limit, gpu will be stopped if this limit is reached.
+# --api               Enable api without an argument will be listen on 127.0.0.1:42000,
+#                     You can set listen address as an argument for example: --api 0.0.0.0:12345
+#                     Allowed ports 1000 - 65535
+# Example1: miner --server server.com --port 7777 --user name --pass secret --cuda_devices 0 1 2 3 --eexit 1
+# Example2: miner --server server.com --port 7777 --user name --pass secret --eexit 1 --log 2 --solver 1
+
+# ==================================================================
+# INTERNAL USE ONLY: modification below here is unadvised
+TYPE=GPU
+DIR=nvidia-ewbf-zcash
+BINARY=ewbfminer
+CONF=p1:-server,u1:-user,l1:-pass,
+API=-api 127.0.0.1:
+

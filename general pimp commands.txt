@@ -1,0 +1,8 @@
+screen -r // reattach screen not on default port (i.e. for miner ID greater than 1)
+
+minerfarm -s [shortapikey] -l [longapikey] // assign to miner.farm account. get keys by logging into website https://miner.farm/account
+
+// Short key:   mqeWLylE
+// Long key:   RFZMDvAuUJnq2lR96rYNDwQPAIx7A69wChqEbFrxDM
+
+minerfarm -s mqeWLylE -l RFZMDvAuUJnq2lR96rYNDwQPAIx7A69wChqEbFrxDM

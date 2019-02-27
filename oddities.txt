@@ -1,0 +1,4 @@
+# oddities
+
+#gputool not recognising gpus on fglrx, not listing full range of mining algos under pimp --add
+/opt/pimp/bootdetect
